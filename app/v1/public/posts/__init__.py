@@ -28,6 +28,7 @@ posts = APIRouter()
 @posts.get("/get")
 async def posts_get_event():
     post_list = await find_query("posts", {})
+    post_list.reverse()
     return {"posts":post_list}
 
 @posts.get("/get/{id}")
